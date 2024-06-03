@@ -1,16 +1,16 @@
 package com.example.crms_release;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class TableUtils {
     private static TableUtils instance = new TableUtils();
-    private String userTable_path = "src/main/resources/table_data/userTable.txt";
-    private String deviceTable_path = "src/main/resources/table_data/deviceTable.txt";
-    private String changeRecordTable_path = "src/main/resources/table_data/changeRecordTable.txt";
+    private String userTable_path = "userTable.txt";
+    private String deviceTable_path = "deviceTable.txt";
+    private String changeRecordTable_path = "changeRecordTable.txt";
 
     private User currentUser = null;
 
@@ -22,7 +22,13 @@ public class TableUtils {
     // 获取所有用户信息
     public ArrayList<User> getAllUsers() {
         ArrayList<User> users = new ArrayList<>();
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(userTable_path))) {
+        // 使用 ClassLoader 获取资源
+//        InputStream is = this.getClass().getClassLoader().getResourceAsStream(userTable_path);
+//        if (is == null) {
+//            System.out.println("资源记录加载失败！ --> getAllUsers()");
+//            return users;  // 注意这里返回空列表表示没有加载到数据
+//        }
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream(userTable_path)))){
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] split = line.split(",");
@@ -36,10 +42,11 @@ public class TableUtils {
             System.out.println("读取用户信息成功！--> getAllUsers()");
         } catch (Exception e) {
             System.out.println("读取用户信息失败！--> getAllUsers()");
-            System.out.println(e.getMessage());
+            e.printStackTrace();  // 打印堆栈跟踪，帮助诊断问题
         }
         return users;
     }
+
 
     // 检查网络连接情况
     public boolean connectToDatabase() {
