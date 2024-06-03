@@ -19,8 +19,8 @@
    <PasswordField fx:id="passwordField_password" layoutX="265.0" layoutY="185.0" prefHeight="7.0" prefWidth="197.0" />
    <Label layoutX="144.0" layoutY="110.0" styleClass="label-tip" text="用户名" />
    <Label layoutX="154.0" layoutY="184.0" styleClass="label-tip" text="密码" />
-   <Button fx:id="button_connect" layoutX="152.0" layoutY="293.0" mnemonicParsing="false" text="连接数据库" />
-   <Button fx:id="button_login" layoutX="406.0" layoutY="293.0" mnemonicParsing="false" text="登录" />
+   <Button fx:id="button_connect" layoutX="152.0" layoutY="293.0" mnemonicParsing="false" onAction="#Button_connectDatabase" text="连接数据库" />
+   <Button fx:id="button_login" layoutX="406.0" layoutY="293.0" mnemonicParsing="false" onAction="#Button_login" text="登录" />
    <Circle fx:id="circle_flag" fill="#ff1f1f" layoutX="575.0" layoutY="25.0" radius="11.0" stroke="BLACK" strokeType="INSIDE" />
    <Label fx:id="label_isConnected" layoutX="451.0" layoutY="5.0" styleClass="label-isConnected" text="数据库未连接">
       <font>

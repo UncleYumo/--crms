@@ -50,7 +50,7 @@ public class MainApplication extends Application {
 
         // 当前场景隐藏后触发事件（开启主界面）
         primaryStage.setOnHidden(event -> {
-            if (loginView_Controller.isConnected()) {
+            if (loginView_Controller.isConnected() && loginView_Controller.isLogined()) {
                 mainStage.show();
             }
         });
@@ -136,7 +136,7 @@ public class MainApplication extends Application {
                 System.out.println("非管理员用户无权访问信息统计页面");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("错误");
-                alert.setHeaderText("无权访问");
+                alert.setHeaderText("您当前的权限为：" + loginView_Controller.userRole);
                 alert.setContentText("您没有权限访问该页面，如有需要请联系管理员获得权限！");
                 alert.showAndWait();
                 return;
@@ -149,7 +149,7 @@ public class MainApplication extends Application {
                 System.out.println("非管理员用户无权访问信息统计页面");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("错误");
-                alert.setHeaderText("无权访问");
+                alert.setHeaderText("您当前的权限为：" + loginView_Controller.userRole);
                 alert.setContentText("您没有权限访问该页面，如有需要请联系管理员获得权限！");
                 alert.showAndWait();
                 return;
@@ -162,7 +162,7 @@ public class MainApplication extends Application {
                 System.out.println("非管理员用户无权访问信息统计页面");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("错误");
-                alert.setHeaderText("无权访问");
+                alert.setHeaderText("您当前的权限为：" + loginView_Controller.userRole);
                 alert.setContentText("您没有权限访问该页面，如有需要请联系管理员获得权限！");
                 alert.showAndWait();
                 return;
@@ -195,8 +195,17 @@ public class MainApplication extends Application {
     }
 
     public void init() {
+        System.out.println("init方法调用成功");
     }
 
     public void stop() {
+        System.out.println("stop方法调用成功");
+        // 关闭数据库连接
+        System.out.println("正在关闭数据库连接...");
+        System.out.println("数据库连接已关闭！");
+        // 关闭JavFX程序
+        System.out.println("正在关闭JavaFX程序...");
+        System.out.println("JavaFX程序已关闭！");
+        System.exit(0);
     }
 }

@@ -34,17 +34,24 @@ public class ComputerRentView_Controller {
     public Button button_clearLog;
     private AnchorPane anchorPane;
 
-    private boolean isRefreshButtonClicked = false;
-
     List<String> textList = new ArrayList<>();
     List<String> textRecordList = new ArrayList<>();
 
     public void initialize() {
         System.out.println("电脑租赁界面initialize()方法被调用");
+        // 刷新按钮点击前禁止其他操作
+        button_rent.setDisable(true);
+        button_return.setDisable(true);
+        button_clearLog.setDisable(true);
+        button_myRecord.setDisable(true);
     }
 
     public void onAction_refreshTable(ActionEvent actionEvent) {
         textList.add("正在刷新设备列表...\n");
+        button_rent.setDisable(false);
+        button_return.setDisable(false);
+        button_clearLog.setDisable(false);
+        button_myRecord.setDisable(false);
     }
 
     public void onAction_rentDevice(ActionEvent actionEvent) {
