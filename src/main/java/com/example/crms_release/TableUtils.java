@@ -55,15 +55,20 @@ public class TableUtils {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("HEAD");
             int responseCode = connection.getResponseCode();
+            System.out.println("正在检查检查网络连接...");
             if (responseCode == HttpURLConnection.HTTP_OK) {
-                System.out.println("用户网络连接正常。");
+                System.out.println("网络连接正常！");
+                System.out.println("正常尝试连接数据库...");
+                // 一秒的延迟，等待数据库连接
+                Thread.sleep(1000);
+                System.out.println("数据库连接正常！");
                 return true;  // 网络正常
             } else {
                 System.out.println("用户数据库连接异常，状态码：" + responseCode);
                 return false;  // 网络异常
             }
         } catch (Exception e) {
-            System.out.println("无法检测网络连接。错误：" + e.getMessage());
+            System.out.println("无法检测网络连接！错误：" + "网络连接超时...");
             return false;  // 网络异常或无法检测
         }
     }

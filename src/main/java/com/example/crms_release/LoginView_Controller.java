@@ -68,9 +68,9 @@ public class LoginView_Controller {
         }
         label_isConnected.setText("连接失败！");
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("连接失败");
-        alert.setHeaderText("数据库连接失败！");
-        alert.setContentText("请老师别急着扣分，先加我QQ：2894661403！");
+        alert.setTitle("数据库连接失败");
+        alert.setHeaderText("网络连接异常！");
+        alert.setContentText("你先别急，请检查网络连接，实在不行先加我QQ：2894661403！");
         alert.showAndWait();
         circle_flag.setFill(javafx.scene.paint.Color.RED);
     }
