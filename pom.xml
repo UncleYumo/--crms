@@ -51,17 +51,17 @@
             <artifactId>bootstrapfx-core</artifactId>
             <version>0.4.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.github.almasb</groupId>
-            <artifactId>fxgl</artifactId>
-            <version>17.2</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.openjfx</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.almasb</groupId>-->
+<!--            <artifactId>fxgl</artifactId>-->
+<!--            <version>17.2</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.openjfx</groupId>-->
+<!--                    <artifactId>*</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -77,16 +77,14 @@
     </dependencies>
 
     <build>
-
         <plugins>
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
                     <source>21</source>
+                    <release>21</release>
                     <target>21</target>
                 </configuration>
             </plugin>
@@ -99,7 +97,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.crms_release/com.example.crms_release.MainApplication</mainClass>
+                            <mainClass>com.example.crms_release/comcd .example.crms_release.MainApplication</mainClass>
                             <launcher>MainApplication</launcher>
                             <jlinkZipName>mainApp</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
@@ -112,6 +110,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
